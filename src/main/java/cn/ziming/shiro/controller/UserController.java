@@ -39,12 +39,10 @@ public class UserController {
     public String testThymeleaf(Model model){
 
         model.addAttribute("name", "倪子铭");
-
         return "admin/thymeleaf.html";
     }
 
     @RequestMapping("/add")
-    @ResponseBody
     public String add(Model model){
         model.addAttribute("name", "倪子铭");
         return "user/add.html";
@@ -55,34 +53,39 @@ public class UserController {
         return "/login.html";
     }
 
+    @RequestMapping("/update")
+    public String update(Model model){
+        model.addAttribute("name", "倪子铭");
+        return "user/update.html";
+    }
+
+
+
     @RequestMapping("/doLogin")
     public String doLogin(User user, Model model){
         /*
          * 使用shiro编写认证
          */
         // 1.获取subject
-        Subject subject = SecurityUtils.getSubject();
+        // Subject subject = SecurityUtils.getSubject();
 
         // 2.封装用户数据
-        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
+        // UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
 
         // 3.执行登录操作
-        try {
-            subject.login(token);
-            model.addAttribute("msg", "欢迎来到主页");
-            return "redirect:/user/testThymeleaf";
-        }catch (UnknownAccountException e){
-            model.addAttribute("msg", "用户名不存在");
-            return "/login";
-        }catch (IncorrectCredentialsException e){
-            model.addAttribute("msg", "密码错误");
-            return "/login";
-        }
+        return "testThymeleaf";
+
+        // try {
+        //     subject.login(token);
+        //     return "testThymeleaf";
+        // }catch (UnknownAccountException e){
+        //     model.addAttribute("msg", "用户名不存在");
+        //     return "login";
+        // }catch (IncorrectCredentialsException e){
+        //     model.addAttribute("msg", "密码错误");
+        //     return "login";
+        // }
     }
 
-    @RequestMapping("/update")
-    public String update(Model model){
-        model.addAttribute("name", "倪子铭");
-        return "user/update.html";
-    }
+
 }
