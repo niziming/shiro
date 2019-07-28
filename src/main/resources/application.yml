@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shiro?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC  #?characterEncoding=utf8
+    #serverTimezone: UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: ziming
+    password: ziming
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+server:
+  port: 8080
+
+#动态sql打印
+logging:
+  level:
+    cn.ziming.shiro.mapper: DEBUG
+
+
