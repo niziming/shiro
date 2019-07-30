@@ -7,24 +7,26 @@
 <body>
 <h1>Hello test</h1>
 
-<h2 id="msg"></h2>
+<h2 th:text="${resultMap.msg}"></h2>
 
-
+<button onclick="changeMsg()">点击更改信息</button>
 <script type="text/javascript" src="/webjars/jquery/3.2.1/jquery.min.js" ></script>
 <script>
+
+    function changeMsg(){
         $.ajax({
+            withCredentials:true,
             url: '/user/test',
             type: 'GET',
             dataType: 'json',
-
             success: function (resultMap) {
+                console.log(resultMap);
                 console.log(resultMap.msg);
-                $("#msg").html('');
-                $("#msg").append(
-                    resultMap.msg + "测试"
-                );
+                var msg = resultMap.msg;
             }
         })
+    }
+
 </script>
 </body>
 </html>
