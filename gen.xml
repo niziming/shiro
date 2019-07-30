@@ -45,6 +45,10 @@
 		<!--<table tableName="mx" domainObjectName="Mx"></table>-->
 		<!--<table tableName="mxsx" domainObjectName="Mxsx"></table>-->
 		<table tableName="user" domainObjectName="User"></table>
+		<!--<table tableName="role" domainObjectName="Role"></table>-->
+		<!--<table tableName="privilege" domainObjectName="Privilege"></table>-->
+		<!--<table tableName="user_role" domainObjectName="UserRole"></table>-->
+		<!--<table tableName="role_privilege" domainObjectName="RolePrivilege"></table>-->
 		<!--<table tableName="sb" domainObjectName="Sb"></table>-->
 		<!--&lt;!&ndash; <table tableName="mx" domainObjectName="Mx"></table> <table tableName="mxsx"-->
 			<!--domainObjectName="Mxsx"></table> &ndash;&gt;-->

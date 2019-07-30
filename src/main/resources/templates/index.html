@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:shiro="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Shiro</title>
@@ -9,8 +9,10 @@
 <h2 th:text="${msg}"></h2>
 <a href="/user/info">数据库测试</a>
 <a href="/user/testThymeleaf">Thymeleaf测试</a>
-<a href="/user/add">用户增加</a>
-<a href="/user/update">用户更改</a>
+    <a shiro:hasPermission="add" href="/user/add">用户增加</a>
+    <a shiro:hasPermission="update" href="/user/update">用户更改</a>
+    <a shiro:hasPermission="softDep" href="/user/department">用户部门</a>
 <a href="/user/login">用户登录</a>
+<a href="/static/static.html">ajax测试页面</a>
 </body>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<h1>Hello test</h1>
+
+<h2 id="msg"></h2>
+
+
+<script type="text/javascript" src="/webjars/jquery/3.2.1/jquery.min.js" ></script>
+<script>
+        $.ajax({
+            url: '/user/test',
+            type: 'GET',
+            dataType: 'json',
+
+            success: function (resultMap) {
+                console.log(resultMap.msg);
+                $("#msg").html('');
+                $("#msg").append(
+                    resultMap.msg + "测试"
+                );
+            }
+        })
+</script>
+</body>
+</html>

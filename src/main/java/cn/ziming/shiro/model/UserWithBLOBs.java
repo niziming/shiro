@@ -16,6 +16,9 @@ public class UserWithBLOBs extends User {
     @Column(name = "authentication_string")
     private String authenticationString;
 
+    @Column(name = "User_attributes")
+    private String userAttributes;
+
     /**
      * @return ssl_cipher
      */
@@ -70,5 +73,19 @@ public class UserWithBLOBs extends User {
      */
     public void setAuthenticationString(String authenticationString) {
         this.authenticationString = authenticationString == null ? null : authenticationString.trim();
+    }
+
+    /**
+     * @return User_attributes
+     */
+    public String getUserAttributes() {
+        return userAttributes;
+    }
+
+    /**
+     * @param userAttributes
+     */
+    public void setUserAttributes(String userAttributes) {
+        this.userAttributes = userAttributes == null ? null : userAttributes.trim();
     }
 }

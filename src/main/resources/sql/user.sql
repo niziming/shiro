@@ -1,3 +1,5 @@
+create database shiro;
+use shiro;
 create table if not exists user
 (
 	id int(12) auto_increment comment '用户ID'

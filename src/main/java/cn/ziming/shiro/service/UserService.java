@@ -10,4 +10,6 @@ public interface UserService {
     User selectOne(User user);
 
     User quearyUserInfo(String info);
+
+    List<String> selectPrivilegeByUid(Integer uid);
 }

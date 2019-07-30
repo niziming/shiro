@@ -34,4 +34,9 @@ public class UserServiceImplTest {
     @Test
     public void quearyUserInfo() {
     }
+
+    @Test
+    public void selectPrivilegeByUid() {
+        System.out.println(userService.selectPrivilegeByUid(1));
+    }
 }

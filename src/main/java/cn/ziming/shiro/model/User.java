@@ -14,23 +14,21 @@ public class User {
     /**
      * 用户名
      */
+    @Column
     private String username;
 
     /**
      * 密码
      */
+    @Column
     private String password;
-
-    /**
-     * 用户角色
-     */
-    private String role;
 
     /**
      * 获取用户ID
      *
      * @return id - 用户ID
      */
+    @Column
     public Integer getId() {
         return id;
     }
@@ -78,23 +76,5 @@ public class User {
      */
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
-    }
-
-    /**
-     * 获取用户角色
-     *
-     * @return role - 用户角色
-     */
-    public String getRole() {
-        return role;
-    }
-
-    /**
-     * 设置用户角色
-     *
-     * @param role 用户角色
-     */
-    public void setRole(String role) {
-        this.role = role == null ? null : role.trim();
     }
 }

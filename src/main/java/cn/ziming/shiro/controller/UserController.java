@@ -1,5 +1,6 @@
 package cn.ziming.shiro.controller;
 
+import cn.ziming.shiro.common.utils.ResultMap;
 import cn.ziming.shiro.model.User;
 import cn.ziming.shiro.service.UserService;
 import org.apache.shiro.SecurityUtils;
@@ -59,33 +60,44 @@ public class UserController {
         return "user/update.html";
     }
 
-
-
     @RequestMapping("/doLogin")
     public String doLogin(User user, Model model){
         /*
          * 使用shiro编写认证
          */
         // 1.获取subject
-        // Subject subject = SecurityUtils.getSubject();
+        Subject subject = SecurityUtils.getSubject();
 
         // 2.封装用户数据
-        // UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
+        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
 
         // 3.执行登录操作
-        return "testThymeleaf";
-
-        // try {
-        //     subject.login(token);
-        //     return "testThymeleaf";
-        // }catch (UnknownAccountException e){
-        //     model.addAttribute("msg", "用户名不存在");
-        //     return "login";
-        // }catch (IncorrectCredentialsException e){
-        //     model.addAttribute("msg", "密码错误");
-        //     return "login";
-        // }
+        try {
+            subject.login(token);
+            return "admin/thymeleaf.html";
+        }catch (UnknownAccountException e){
+            model.addAttribute("msg", "用户名不存在");
+            return "login";
+        }catch (IncorrectCredentialsException e){
+            model.addAttribute("msg", "密码错误");
+            return "login";
+        }
     }
+
+    @RequestMapping("/unAuthorized")
+    public String unAuthorized(Model model){
+        model.addAttribute("msg", "未经授权的访问");
+        return "admin/thymeleaf.html";
+    }
+
+    @RequestMapping("/test")
+    @ResponseBody
+    public ResultMap test(){
+        ResultMap resultMap = new ResultMap();
+        resultMap.set("msg", "测试静态页面");
+        return resultMap;
+    }
+
 
 
 }

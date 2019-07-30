@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -32,8 +33,13 @@ public class UserServiceImpl implements UserService {
 
         User user = userMapper.selectOneByExample(userExample);
 
-
         return user;
+    }
+
+    @Override
+    public List<String> selectPrivilegeByUid(Integer uid) {
+        List<String> strings = userMapper.selectPrivilegeByUid(uid);
+        return strings;
     }
 
 }
